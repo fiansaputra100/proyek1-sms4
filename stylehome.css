@@ -37,21 +37,16 @@ body{
     justify-content: space-evenly;
 }
 
-.kategori-tempat{
-    background-color: lightgreen;
-    font-family: sans-serif;
-    color:white;
-    display: flex;
-    height : 50px;
-    border-radius: 30px;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1.5rem 1rem;
-}
+table td input[type="button"]{
+    background-color: skyblue;
+    border: none;
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+    cursor: pointer;
+    width: 50%;
+    transition: 0.5;
 
-.left-konten, .right-content{
-    display: flex;
-    align-items: center;
 }
 
 .top-bar{
