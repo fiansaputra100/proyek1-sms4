@@ -4,10 +4,11 @@ body {
     display: flex;
     justify-content: center;
     height: 1200px;
-    background: url(login.png);
+    background: url(../img/homepage.png);
     background-repeat: no-repeat;
+    background-attachment: fixed;
     align-items: center;
-    font-family: san-serif;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 table {

@@ -1,9 +1,11 @@
-<?php 
-    $hostname = "Localhost";
-    $username = "root";
-    $password = "";
-    $database = "pemesanan_tiket_liburan";
-    
-    $connect = mysqli_connect($hostname, $username, $password, $database);
-
+<?php
+$host     = 'localhost';
+$user     = 'root'; // diisi dengan user database kalian biasanya
+                    // defaultnya bernama root jika kita belum 
+                    // merubahnya
+$password = '';  //diisi dengan password database kalian biasanya
+                 // defaultnya kosong
+$db       = 'pemesanan_tiket_liburan'; //diisi dengan nama database kalian
+ 
+$con = mysqli_connect($host, $user, $password, $db) or die(mysqli_error());
 ?>
