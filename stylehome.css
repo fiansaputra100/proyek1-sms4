@@ -65,6 +65,29 @@ table td input[type="button"]{
     align-items: center;
 }
 
+.kategori-tempat{
+    background-color: rgba(255, 255, 255, 0.8);
+    font-family: sans-serif;
+    display: flex;
+    height : 50px;
+    border-radius: 30px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem 1rem;
+}
+
+table td input[type="button"]{
+    background-color: skyblue;
+    border: none;
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+    cursor: pointer;
+    width: 50%;
+    transition: 0.5;
+
+}
+
 .title{
     font-family: sans-serif;
     margin-right: 3rem;
@@ -257,7 +280,7 @@ label {
 }
 
 .current-movie{
-    width: 1000px;
+    width: 350px;
     background-color: white;
     padding: 1rem;
     border-radius: .5rem;
@@ -275,7 +298,7 @@ label {
 .movie-title{
     font-family: sans-serif;
     color: gray;
-    font-size: 30px;
+    font-size: 25px;
     margin-bottom: 1.5rem;
 }
 
