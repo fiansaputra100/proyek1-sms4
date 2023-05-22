@@ -28,7 +28,7 @@ $koneksi = mysqli_connect("localhost","root","","pemesanan_tiket_liburan");
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">Admin Holyay</a> 
+                <a class="navbar-brand" href="index.html">Admin Holyayy</a> 
             </div>
   <div style="color: white;
 padding: 15px 50px 5px 50px;
@@ -83,8 +83,12 @@ font-size: 16px;"> &nbsp; <a href="login.html" class="btn btn-danger square-btn-
                     if($_GET['halaman']=="tambahwisata")
                         {
                             include 'tambahwisata.php';
-                            }    
-                }
+                        }    
+                    if($_GET['halaman']=="hapuswisata")
+                        {
+                            include 'hapuswisata.php';
+                        }   
+                        }
                 else
                 {
                     include 'home.php';

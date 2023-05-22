@@ -28,12 +28,12 @@ if (isset($_POST ['save']))
 {
     $nama = $_FILES['foto']['name'];
     $lokasi = $_FILES['foto']['tmp_name'];
-    move_uploaded_file($lokasi, "foto_wisata/".$nama);
+    move_uploaded_file($lokasi, "../foto_wisata/".$nama);
     $koneksi->query("INSERT INTO wisata
     (nama_wisata,lokasi_wisata,harga_wisata,foto_wisata)
-    VALUES('$_POST[nama]','$_POST[lokasi]', '$_POST[harga]')");
+    VALUES('$_POST[nama]','$_POST[lokasi]', '$_POST[harga]', '$nama')");
 
     echo "<div class='alert alert-info'>Data Tersimpan</div>";
-    echo "<meta http-equive='refresh' content='1;url=index.php?halaman=wisata'>";
+    echo "<meta http-equive='refresh' content='1;url=wisata.php?halaman=wisata'>";
 }
 ?>
