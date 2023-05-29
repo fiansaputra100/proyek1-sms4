@@ -9,6 +9,7 @@
     <!-- Favicon -->
     <link href="img/favicon.ico" rel="icon">
 
+<<<<<<< HEAD
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -114,3 +115,24 @@
    
 </body>
 </html>
+=======
+    <tbdoy>
+        <?php $nomor=1; ?>
+        <?php $ambil=$koneksi->query("SELECT * FROM wisata"); ?>
+        <? while($pecah = $ambil->fetch_assoc()) ?>
+        <tr>
+            <td><?php echo $nomor; ?></td>
+            <td><?php echo $pecah['nama_wisata']; ?></td>
+            <td><?php echo $pecah['lokasi_wisata']; ?></td>
+            <td><?php echo $pecah['harga_wisata']; ?></td>
+            <td><?php echo $pecah['foto_wisata']; ?></td>
+            <td>
+                <a href="" class="btn-danger btn">Edit</a>
+                <a href="" class="btn-btn warning">Delete</a>
+            </td>
+        </tr>
+        <?php $nomor++; ?>
+    </tbdoy> 
+    
+</table>
+>>>>>>> 551fa5c505d7a9112ffe16d542a96d81a66bd23e
