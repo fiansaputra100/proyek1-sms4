@@ -26,5 +26,6 @@
             </td>
         </tr>
         <?php $nomor++; ?>
-    </tbdoy>
+    </tbdoy> 
+    dasdasdasd
 </table>
