@@ -23,14 +23,11 @@
             <td><?php echo $pecah['nama_wisata']; ?></td>
             <td><?php echo $pecah['lokasi_wisata']; ?></td>
             <td><?php echo $pecah['harga_wisata']; ?></td>
-            <td><img src="foto_wisata/<?php echo $pecah['foto_wisata'];?>" width="100">
+            <td><img src="/halaman admin/foto_wisata/<?php echo $pecah['foto_wisata'];?>" width="100">
             </td>
             <td>  
                 <a href="" class="btn-danger btn">Edit</a>
-                <form action="hapuswisata.php" method="post">
-                <input type="hidden" value="<?php echo $pecah['kode_wisata'];?>" name="id">
-                <input class="btn btn-warning" type="submit" value="Hapus"></input>
-                </form>
+                <a href="index.php?halaman=hapuswisata&id=<?php echo $pecah['kode_wisata']; ?>" class="btn btn-warning">Delete</a>
             </td>
         </tr>
         <?php $nomor++; ?>
