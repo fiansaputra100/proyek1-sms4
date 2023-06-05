@@ -1,25 +1,9 @@
-<?php
-$koneksi = mysqli_connect("localhost","root","","pemesanan_tiket_liburan");
-?>
-<?php 
-include_once('koneksi.php');
-$database = new database();
-if(isset($_POST['register']))
-{
-    $username = $_POST['username'];
-    $password = password_hash($_POST['password'],PASSWORD_DEFAULT);
-    $nama = $_POST['nama'];
-    if($database->register($username,$password,$nama))
-    {
-      header('location:login.php');
-    }
-}
- 
-?>
+<?php include('koneksi.php'); ?>
+
 <!doctype html>
 <html lang="en" class="h-100">
   <head>
-    <meta charset="utf-8">
+  <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
@@ -30,7 +14,6 @@ if(isset($_POST['register']))
  
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="	https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css">
-
  
  
     <style>
@@ -66,35 +49,33 @@ if(isset($_POST['register']))
         <input type="text" class="form-control" id="username" name="username" placeholder="Username">
       </div>
     </div>
-      <br>
+ 
     <div class="form-group row">
       <label for="nama" class="col-sm-2 col-form-label">Nama</label>
       <div class="col-sm-10">
         <input type="text" class="form-control" id="nama" name="nama" placeholder="Nama">
       </div>
     </div>
- <br>
-    <div class="form-group row">
-      <label for="Email" class="col-sm-2 col-form-label">Email</label>
-      <div class="col-sm-10">
-        <input type="text" class="form-control" id="Email" name="Email" placeholder="Email">
-      </div>
-    </div>
-<br>
-    <div class="form-group row">
-      <label for="Nomor Telepon" class="col-sm-2 col-form-label">Nomor Telepon</label>
-      <div class="col-sm-10">
-        <input type="text" class="form-control" id="Nomor Telepon" name="Nomor Telepon" placeholder="Nomor Telepon">
-      </div>
-    </div>
-<br>
+ 
+ 
   <div class="form-group row">
     <label for="password" class="col-sm-2 col-form-label">Password</label>
     <div class="col-sm-10">
       <input type="password" class="form-control" id="password" name="password" placeholder="Password">
     </div>
   </div>
-  <br>
+  <div class="form-group row">
+    <label for="email" class="col-sm-2 col-form-label">Email</label>
+    <div class="col-sm-10">
+      <input type="email" class="form-control" id="email" name="email" placeholder="email">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="nowhatsapp" class="col-sm-2 col-form-label">No Whatsapp</label>
+    <div class="col-sm-10">
+      <input type="number" class="form-control" id="nowhatsapp" name="nowhatsapp" placeholder="nowhatsapp">
+    </div>
+  </div>
   <div class="form-group row">
     <div class="col-sm-10">
       <a href="login.php" class="btn btn-success">Login</a>
@@ -102,10 +83,40 @@ if(isset($_POST['register']))
     </div>
   </div>
 </form>
+
+<?php 
+//jika ada tombol daftar(ditekan)
+if (isset($_POST["register"]))
+{
+  //mengambil isian daftar
+  $username = $_POST["username"];
+  $nama = $_POST["nama"];
+  $password = $_POST["password"];
+  $email = $_POST["email"];
+  $no_whatsapp = $_POST["nowhatsapp"];
+
+  //cek apakah email sudah digunakan
+  $koneksi->query("SELECT*FROM tb_user WHERE email ='$email'");
+  $ygcocok =$ambil->num_rows;
+if($ygcocok==1)
+{
+  echo "<script>alert('pendaftaran gagal, email sudah digunakan');</script>";
+  echo "<script>location='register.php';</script>";
+}
+else
+{
+  //query insert ke tabel user
+  $koneksi->query("INSERT INTO tb_user (username,nama,password,email,no_whatsapp) 
+  VALUES('$email','$password','$nama','$no_whatsapp')");
+    echo "<script>alert('pendaftaran berhasil, silahkan melakukan login');</script>";
+    echo "<script>location='login.php';</script>";
+}
+}
+?>
+
   </div>
 </main>
  
 
 </body>
 </html>
-

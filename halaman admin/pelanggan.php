@@ -22,7 +22,7 @@
             <td><?php echo $pecah['nama']; ?></td>
             <td><?php echo $pecah['username']; ?></td>
             <td><?php echo $pecah['email']; ?></td>
-            <td><?php echo $pecah['Nomor Whatsapp']; ?></td>
+            <td><?php echo $pecah['no_whatsapp']; ?></td>
             <td>
                 <a href="" class="btn btn-danger">Hapus</a>
             </td>

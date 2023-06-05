@@ -3,7 +3,6 @@
 <table class="table table-bordered">
     <thead>
         <th>No</th>
-        <th>Nama Pelanggan</th>
         <th>Tanggal</th>
         <th>Total</th>
         <th>Aksi</th>
@@ -19,7 +18,6 @@
         <?php while($pecah = $ambil->fetch_assoc()) { ?>
         <tr>
             <td><?php echo $nomor; ?></td>
-            <td><?php echo $pecah['nama_pelanggan']; ?></td>
             <td><?php echo $pecah['tanggal_pembelian']; ?></td>
             <td><?php echo $pecah['total_pembelian']; ?></td>
             <td>

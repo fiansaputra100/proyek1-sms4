@@ -9,7 +9,7 @@
     <!-- Favicon -->
     <link href="img/favicon.ico" rel="icon">
 
-<<<<<<< HEAD
+
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -44,12 +44,11 @@
                 <span class="fa fa-bars"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
-                <div class="navbar-nav ms-auto py-0">
-                    <a href="index.html" class="nav-item nav-link ">Home</a>
-                    <a href="#" class="nav-item nav-link active">Destinasi</a>
+            <div class="navbar-nav ms-auto py-0">
+                    <a href="index.php" class="nav-item nav-link ">Home</a>
+                    <a href="wisata.php" class="nav-item nav-link active">Destinasi</a>
                     <a href="#" class="nav-item nav-link">Informasi</a>
-                    <a href="contact.html" class="nav-item nav-link">Contact</a>
-                    <a href="#" class="nav-item nav-link">Booking</a>
+                    <a href="keranjang.php" class="nav-item nav-link ">Keranjang Belanja</a>
                 </div>
                 <a href="logout.php" class="btn btn-primary rounded-pill py-2 px-4">Logout</a>
             </div>
@@ -74,6 +73,7 @@
 
 
 <!-- Package Start -->
+
 <div class="container-xxl py-4">
         <div class="container">
             <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
@@ -84,23 +84,24 @@
                     <div class="package-item d-grid" style="width: 1100px">
                   
                         <div class="p-3 d-grid">
+                            <br>
                         <?php $koneksi = mysqli_connect("localhost","root","","pemesanan_tiket_liburan") ?>   
                         <?php $ambil = $koneksi->query("SELECT * FROM wisata"); ?>
                         <?php while($perwisata = $ambil->fetch_assoc()) { ?> 
                             <h3 class="mb-0">Rp. <?php echo number_format($perwisata['harga_wisata']); ?></h3>
                             <h3 class="mb-9" text-color:red><?php echo $perwisata['nama_wisata']; ?></h3>
-                            <div class="mb-3">
-                                <small class="fa fa-star text-primary"></small>
-                                <small class="fa fa-star text-primary"></small>
-                                <small class="fa fa-star text-primary"></small>
-                                <small class="fa fa-star text-primary"></small>
-                                <small class="fa fa-star text-primary"></small>
-                            </div>
                             <p><?php echo $perwisata['lokasi_wisata']; ?></p>
+    
                             <div class="d-flex justify-content-left mb-2">
-                                <a href="#" class="btn btn-sm btn-primary px-3 border-end" style="border-radius: 30px 0 0 30px;">Lihat Map</a>
-                                <a href="booking.html" class="btn btn-sm btn-primary px-3" style="border-radius: 0 30px 30px 0;">Pesan Sekarang</a>
+                                <a href="booking.php?id=<?php echo $perwisata['kode_wisata']; ?>" class="btn btn-sm btn-primary px-3" style="border-radius: 0 30px 30px 0;">Pesan Sekarang</a>
+                                <a href="detail.php?id=<?php echo $perwisata['kode_wisata']; ?>" class="btn btn-sm btn-primary px-3" style="border-radius: 0 30px 30px 0;">Pesan Sekarang</a>
                             </div>
+
+                            <div class="overflow-hidden">   
+                            <td><?="<img src='halaman admin/foto_wisata/".$perwisata['foto_wisata']."'style='width:1100px; height:300px; float:right; margin:5px;'>"?></td>
+                            </div>
+                            <br><br>
+
                             <?php } ?> 
                         </div>
                     </div>
@@ -115,24 +116,5 @@
    
 </body>
 </html>
-=======
-    <tbdoy>
-        <?php $nomor=1; ?>
-        <?php $ambil=$koneksi->query("SELECT * FROM wisata"); ?>
-        <? while($pecah = $ambil->fetch_assoc()) ?>
-        <tr>
-            <td><?php echo $nomor; ?></td>
-            <td><?php echo $pecah['nama_wisata']; ?></td>
-            <td><?php echo $pecah['lokasi_wisata']; ?></td>
-            <td><?php echo $pecah['harga_wisata']; ?></td>
-            <td><?php echo $pecah['foto_wisata']; ?></td>
-            <td>
-                <a href="" class="btn-danger btn">Edit</a>
-                <a href="" class="btn-btn warning">Delete</a>
-            </td>
-        </tr>
-        <?php $nomor++; ?>
-    </tbdoy> 
-    
-</table>
->>>>>>> 551fa5c505d7a9112ffe16d542a96d81a66bd23e
+
+

@@ -1,41 +1,4 @@
-<?php
-session_start();
-include_once('koneksi.php');
-$database = new database();
 
-if (isset($_SESSION['is_login'])) {
-  header('location:index.php');
-}
-
-if (isset($_COOKIE['username'])) {
-  $database->relogin($_COOKIE['username']);
-  header('location:index.php');
-}
-
-if (isset($_POST['login'])) {
-  $username = $_POST['username'];
-  $password = $_POST['password'];
-  if (isset($_POST['remember'])) {
-    $remember = TRUE;
-  } else {
-    $remember = FALSE;
-  }
-
-  if ($database->login($username, $password, $remember)) {
-    header('location:index.php');
-  }
-}
-
-if (isset($_GET["error"])) {
-  $error = $_GET["error"];
-} else {
-  $error = "";
-}
-$message = "";
-if ($error == "failed") {
-  $message = "Failed to login, please login again";
-}
-?>
 <!doctype html>
 <html lang="en">
 
@@ -78,14 +41,51 @@ if ($error == "failed") {
   <form class="form-signin" method="post" action="">
 
     <h1 class="h3 mb-3 font-weight-normal">Silahkan Login</h1>
-    <label for="username" class="sr-only">Username</label>
-    <input type="text" id="username" class="form-control" placeholder="Username" name="username" required autofocus>
+    <label for="email" class="sr-only">Username</label>
+    <input type="email" id="email" class="form-control" placeholder="Email" name="email" required autofocus>
     <label for="password" class="sr-only">Password</label>
     <input type="password" id="password" class="form-control" placeholder="Password" name="password" required>
 
     <button class="btn btn-lg btn-primary btn-block" type="submit" name="login">Sign in</button>
     <a href="register.php" class="btn btn-lg btn-success btn-block">Register</a>
   </form>
+
+  <?php
+session_start();
+$koneksi = new mysqli("localhost","root","","pemesanan_tiket_liburan")
+?>
+
+  <?php 
+  //jika ada tombol simpan(tombol simpan ditekan)
+  if (isset($_POST["login"]))
+  {
+    $email = $_POST["email"];
+    $password = $_POST["password"];
+    //lakukan quert mengecek akun di tabel tb_user di database
+    $ambil = $koneksi->query("SELECT * FROM tb_user WHERE email='$email' AND password_akun='$password'");
+
+    //ngitung akun yang terambil
+    $akuncocok = $ambil->num_rows;
+
+    //jika 1 akun yang cocok, maka diloginkan
+    if ($akuncocok==1)
+    {
+      //anda sudah login
+      //mendapatkan akun dalam bentuk array
+      $akun = $ambil->fetch_assoc();
+      //simpan di session pelanggan
+      $_SESSION["pelanggan"] = $akun;
+      echo "<script>alert('Berhasil Melakukan Login');</script>";
+      echo "<script>location='index.php';</script>";
+    }
+    else
+    {
+      //anda gagal login
+      echo "<script>alert('anda gagal login, periksa username atau password anda');</script>";
+      echo "<script>location='login.php';</script>";
+    }
+  }
+  ?>
 </body>
 
 </html>
