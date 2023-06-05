@@ -1,9 +1,8 @@
-<!DOCTYPE html>
 <?
 $koneksi = new mysqli("localhost","root","","pemesanan_tiket_liburan")
 ?>
 
-
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
