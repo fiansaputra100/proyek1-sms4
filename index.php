@@ -61,7 +61,12 @@ $koneksi = new mysqli("localhost","root","","pemesanan_tiket_liburan")
                     <a href="index.php" class="nav-item nav-link active ">Home</a>
                     <a href="wisata.php" class="nav-item nav-link">Destinasi</a>
                     <a href="#" class="nav-item nav-link">Informasi</a>
+<<<<<<< HEAD
                     <a href="keranjang.php" class="nav-item nav-link">Keranjang Belanja</a>
+=======
+                    <a href="contact.php" class="nav-item nav-link">Contact</a>
+                    <a href="#" class="nav-item nav-link">Booking</a>
+>>>>>>> 4c7b635f2496574a86bf6dae6f458aded0eb28ef
                 </div>
                 <a href="logout.php" class="btn btn-primary rounded-pill py-2 px-4">Logout</a>
             </div>
