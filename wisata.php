@@ -93,7 +93,7 @@
                             <p><?php echo $perwisata['lokasi_wisata']; ?></p>
     
                             <div class="d-flex justify-content-left mb-2">
-                                <a href="booking.php?id=<?php echo $perwisata['kode_wisata']; ?>" class="btn btn-sm btn-primary px-3" style="border-radius: 0 30px 30px 0;">Pesan Sekarang</a>
+                            
                                 <a href="detail.php?id=<?php echo $perwisata['kode_wisata']; ?>" class="btn btn-sm btn-primary px-3" style="border-radius: 0 30px 30px 0;">Pesan Sekarang</a>
                             </div>
 

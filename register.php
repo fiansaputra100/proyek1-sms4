@@ -1,4 +1,4 @@
-<?php include('koneksi.php'); ?>
+
 
 <!doctype html>
 <html lang="en" class="h-100">
@@ -84,6 +84,8 @@
   </div>
 </form>
 
+<?php session_start(); ?>
+<?php include('koneksi.php'); ?>
 <?php 
 //jika ada tombol daftar(ditekan)
 if (isset($_POST["register"]))
@@ -96,7 +98,7 @@ if (isset($_POST["register"]))
   $no_whatsapp = $_POST["nowhatsapp"];
 
   //cek apakah email sudah digunakan
-  $koneksi->query("SELECT*FROM tb_user WHERE email ='$email'");
+  $ambil = $koneksi->query("SELECT*FROM tb_user WHERE email ='$email'");
   $ygcocok =$ambil->num_rows;
 if($ygcocok==1)
 {
@@ -106,8 +108,8 @@ if($ygcocok==1)
 else
 {
   //query insert ke tabel user
-  $koneksi->query("INSERT INTO tb_user (username,nama,password,email,no_whatsapp) 
-  VALUES('$email','$password','$nama','$no_whatsapp')");
+ $koneksi->query("INSERT INTO tb_user (username,nama,password_akun,email,no_whatsapp) 
+  VALUES('$username','$email','$password','$nama','$no_whatsapp')");
     echo "<script>alert('pendaftaran berhasil, silahkan melakukan login');</script>";
     echo "<script>location='login.php';</script>";
 }

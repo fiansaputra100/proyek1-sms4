@@ -62,8 +62,9 @@
     </div>
     <!-- Navbar & Hero End -->
 
-    
+   <?php session_start(); ?> 
 <?php include 'koneksi.php'; ?>
+
 <?php 
 //mendapatkan kode_wisata dari url
 $kode_wisata = $_GET["id"];
@@ -71,6 +72,8 @@ $kode_wisata = $_GET["id"];
 //query ambil data
 $ambil = $koneksi->query("SELECT * FROM wisata WHERE kode_wisata ='$kode_wisata'");
 $detail = $ambil->fetch_assoc();
+
+
 ?>
     <section class="kontent">
         <div class="container">
@@ -80,14 +83,32 @@ $detail = $ambil->fetch_assoc();
                 <h4>Rp. <?php echo number_format($detail["harga_wisata"]); ?></h4>
                 <form method="post">
                     <div class="form-group">
+                    
+                                <h4>Jumlah Tiket</h4>
                         <div class="input-group">
+                
                             <input type="number" min="1" class="form-control" name="jumlah">
                             <div class="input-group-btn">
+
                                 <button class="btn btn-primary" name="beli">Pesan</button>
                             </div>
                         </div>
                     </div>
                 </form>
+
+                <?php
+                //jika ada tombol beli
+                if (isset($_POST["beli"]))
+                {
+                    //mendapatkan jumlah yang diinputkan
+                    $jumlah = $_POST["jumlah"];
+                    //masukkan di keranjang belanja
+                    $_SESSION["keranjang"][$kode_wisata] = $jumlah;
+
+                    echo "<script>alert('tiket telah masuk ke keranjang belanja');</script>";
+                    echo "<script>location='keranjang.php'</script>";
+                }
+                ?>
             </div>
     </div>
         </div>

@@ -26,10 +26,12 @@
             <td><img src="foto_wisata/<?php echo $pecah['foto_wisata'];?>" width="100">
             </td>
             <td>  
-                <a href="" class="btn-danger btn">Edit</a>
+                <a href="index.php?halaman=editwisata&id=<?php echo $pecah['kode_wisata'];?> 
+                " class="btn btn-primary" style="background-color:red; border:0px;">Edit</a><br>
+                <br>
                 <form action="hapuswisata.php" method="post">
                 <input type="hidden" value="<?php echo $pecah['kode_wisata'];?>" name="id">
-                <input class="btn btn-warning" type="submit" value="Hapus"></input>
+                <input class="btn btn-primary" type="submit" value="Hapus"></input>
                 </form>
             </td>
         </tr>

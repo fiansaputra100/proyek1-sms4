@@ -88,7 +88,13 @@ font-size: 16px;"> &nbsp; <a href="login.php" class="btn btn-danger square-btn-a
                         {
                             include 'hapuswisata.php';
                         }   
+
+                    if($_GET['halaman']=="editwisata")
+                        {
+                            include 'editwisata.php';
+                        } 
                         }
+                        
                 else
                 {
                     include 'home.php';
