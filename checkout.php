@@ -134,8 +134,15 @@ if(empty($_SESSION["keranjang"]) OR !isset($_SESSION["keranjang"]))
          
                 foreach ($_SESSION["keranjang"] as $kode_wisata => $jumlah)
                 {
-                    $koneksi->query("INSERT INTO pembelian_tiket (id_transaksi,kode_wisata,jumlah)
-                     VALUES ('$id_transaksi_barusan','$kode_wisata','$jumlah')");
+                    //mendapatkan data berdasarakan kode_wisata
+                    $ambil = $koneksi->query("SELECT * FROM wisata WHERE kode_wisata='$kode_wisata'");
+                    $perwisata = $ambil->fetch_assoc();
+
+                    $nama = $perwisata['nama_wisata'];
+                    $harga = $perwisata ['harga_wisata'];
+                    $subharga = $perwisata['harga_wisata']*$jumlah;
+                    $koneksi->query("INSERT INTO pembelian_tiket (id_transaksi,nama,harga,subharga,kode_wisata,jumlah)
+                     VALUES ('$id_transaksi_barusan','$nama','$harga','$subharga'$kode_wisata','$jumlah')");
                 }
 
                 //mengkosongkan keranjang belanja

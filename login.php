@@ -41,8 +41,8 @@
   <form class="form-signin" method="post" action="">
 
     <h1 class="h3 mb-3 font-weight-normal">Silahkan Login</h1>
-    <label for="email" class="sr-only">Username</label>
-    <input type="email" id="email" class="form-control" placeholder="Email" name="email" required autofocus>
+    <label for="username" class="sr-only">Username</label>
+    <input type="type" id="username" class="form-control" placeholder="Username" name="username" required autofocus>
     <label for="password" class="sr-only">Password</label>
     <input type="password" id="password" class="form-control" placeholder="Password" name="password" required>
 
@@ -59,10 +59,10 @@ $koneksi = new mysqli("localhost","root","","pemesanan_tiket_liburan")
   //jika ada tombol simpan(tombol simpan ditekan)
   if (isset($_POST["login"]))
   {
-    $email = $_POST["email"];
+    $username = $_POST["username"];
     $password = $_POST["password"];
     //lakukan quert mengecek akun di tabel tb_user di database
-    $ambil = $koneksi->query("SELECT * FROM tb_user WHERE email='$email' AND password_akun='$password'");
+    $ambil = $koneksi->query("SELECT * FROM tb_user WHERE username='$username' AND password_akun='$password'");
 
     //ngitung akun yang terambil
     $akuncocok = $ambil->num_rows;

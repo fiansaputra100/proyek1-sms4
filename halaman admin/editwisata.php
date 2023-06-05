@@ -37,8 +37,8 @@ $pecah=$ambil->fetch_assoc();
 <?php
 if (isset($_POST['ubah']))
 {
-    $namafoto=$_FILE['foto']['name'];
-    $lokasifoto = $_FILE['foto']['tmp_name'];
+    $namafoto=$_FILES['foto']['name'];
+    $lokasifoto = $_FILES['foto']['tmp_name'];
     //jika foto dirubah
     if (!empty($lokasifoto))
     {

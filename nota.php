@@ -40,35 +40,66 @@
 
 
     <table class="table table-bordered">
-    <h2>Detail Transaksi</h2>
+        <BR><BR><BR>
+    <h1>Detail Transaksi</h1>
     <thead>
-        <th>Email</th>
-        <th>Nomor Whatsapp</th>
-        <th>Tanggal Pembelian</th>
-        <th>Total Pembelian</th>
+        <th>No</th>
+        <th>Nama Wisata</th>
+        <th>Harga</th>
+        <th>SubTotal</th>
     </thead>
 
-                
     <tbdoy>
     <?php $koneksi = mysqli_connect("localhost","root","","pemesanan_tiket_liburan") ?>
+                <?php $nomor=1; ?>
                 <?php 
-                    $ambil = $koneksi->query("SELECT * FROM transaksi JOIN tb_user
+                    $ambil = $koneksi->query("SELECT * FROM transaksi JOIN tb_user JOIN wisata
                         ON transaksi.id_pelanggan = tb_user.id_pelanggan
                         WHERE transaksi.id_transaksi ='$_GET[id]'");
                         $detail = $ambil->fetch_assoc();
                     ?>
-    <td><?php echo $detail['email']; ?></td> <br>
-    <td><?php echo $detail['no_whatsapp']; ?> </td>
+                 
+
+        
+    <br>
+
+        <div class="col-md-3">
+<h4> Nama :   <?php echo $detail['nama']; ?> </h4> 
+        </div>
+
+        <div class="col-md-3">
+<h4>  No Whatsapp :   <?php echo $detail['no_whatsapp']; ?></h4> 
+        </div>
+ 
+    <td><?php echo $detail['nama_wisata']; ?></td> <br>
     <td><?php echo $detail['tanggal_pembelian']; ?> </td> <br>
+    <td><?php echo $detail['harga_wisata']; ?> </td> <br>
     <td><?php echo $detail['total_pembelian']; ?> </td><br>
+    <?php $nomor++; ?>
+
     </tbdoy>
+
 </table>
+<a href="checkout.php" class="btn btn-primary " style="border-radius: 0 30px 30px 0;">Kembali</a>
+
+<br><BR><BR>
 <div class="row">
     <div class="col-md-7">
         <div class="alert alert-info">
             <p>
                 Silahkan melakukan Pembayaran Rp. <?php echo number_format($detail['total_pembelian']); ?><br>
                 <strong>BANK MANDRI : 1309978988771414 (FIAN RIFKY SAPUTRA) </strong>
+            </p>
+        </div>
+    </div>
+</div>
+
+<div class="row" >
+    <div class="col-md-7">
+        <div class="alert alert-info"style="background-color:red; color:white;">
+            <p>
+                Silahkan melakukan Pembayaran Rp. <?php echo number_format($detail['total_pembelian']); ?><br>
+                <strong>LINK AJA : 0855 46259011 (FIAN RIFKY SAPUTRA) </strong>
             </p>
         </div>
     </div>
