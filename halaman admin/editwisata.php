@@ -45,7 +45,13 @@ if (isset($_POST['ubah']))
         move_uploaded_file($lokasifoto, "../halaman admin/foto_wisata/$namafoto");
 
         $koneksi->query("UPDATE wisata SET nama_wisata = '$_POST[nama]', lokasi_wisata = '$_POST[lokasi]',
+        harga_wisata = '$_POST[harga]', foto_wisata ='$namafoto' WHERE kode_wisata='$_GET[id]' ");
+    }
+    else{
+        $koneksi->query("UPDATE wisata SET nama_wisata = '$_POST[nama]', lokasi_wisata = '$_POST[lokasi]',
         harga_wisata = '$_POST[harga]', WHERE kode_wisata='$_GET[id]' ");
     }
+    echo "<script>alert('data wisata telah di update');</script>";
+    echo "<script>location='index.php?halaman=wisata';</script>";
 }
 ?>
