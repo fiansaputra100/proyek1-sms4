@@ -19,8 +19,7 @@
 
     <meta name="description" content="" />
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="../admin/assets/img/favicon/favicon.ico" />
+
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -97,34 +96,18 @@
                               <mask id="mask-2" fill="white">
                                 <use xlink:href="#path-1"></use>
                               </mask>
-                              <use fill="#696cff" xlink:href="#path-1"></use>
-                              <g id="Path-3" mask="url(#mask-2)">
-                                <use fill="#696cff" xlink:href="#path-3"></use>
-                                <use fill-opacity="0.2" fill="#FFFFFF" xlink:href="#path-3"></use>
-                              </g>
-                              <g id="Path-4" mask="url(#mask-2)">
-                                <use fill="#696cff" xlink:href="#path-4"></use>
-                                <use fill-opacity="0.2" fill="#FFFFFF" xlink:href="#path-4"></use>
-                              </g>
-                            </g>
-                            <g
-                              id="Triangle"
-                              transform="translate(19.000000, 11.000000) rotate(-300.000000) translate(-19.000000, -11.000000) "
-                            >
-                              <use fill="#696cff" xlink:href="#path-5"></use>
-                              <use fill-opacity="0.2" fill="#FFFFFF" xlink:href="#path-5"></use>
-                            </g>
+                
                           </g>
                         </g>
                       </g>
                     </svg>
                   </span>
-                  <span class="app-brand-text demo text-body fw-bolder">Sneat</span>
+
                 </a>
               </div>
               <!-- /Logo -->
-              <h4 class="mb-2">Adventure starts here 🚀</h4>
-              <p class="mb-4">Make your app management easy and fun!</p>
+              <h4 class="mb-2">Holyayy - Pendaftaran</h4>
+              <p class="mb-4">Silahkan Melakukan Pendaftaran</p>
 
               <form id="formAuthentication" class="mb-3" action="" method="POST">
                 <div class="mb-3">

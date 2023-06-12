@@ -52,7 +52,7 @@ $koneksi = new mysqli("localhost", "root", "pemesanan_tiket_liburan");
                                      
                                         <button class="btn btn-lg btn-primary btn-block" type="submit" name="login">Sign in</button>
                                     <hr />
-                                    Not register ? <a href="register.php" >click here </a> 
+
                                     </form>
                                    
                             </div>
