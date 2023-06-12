@@ -9,7 +9,8 @@ if(!isset($_SESSION["pelanggan"]) OR empty($_SESSION["pelanggan"]))
     echo "<script>location ='login.php'</script>";
     exit();
 }
-
+?>
+<?php
 //mendapatkan id_Pembelian dari url
 $idpem = $_GET["id"];
 $ambil = $koneksi->query("SELECT * FROM transaksi WHERE id_transaksi='$idpem'");
@@ -129,7 +130,7 @@ if(isset($_POST["kirim"]))
     $namabukti = $_FILES["bukti"]["name"];
     $lokasibukti = $_FILES["bukti"]["tmp_name"];
     $namafiks = date("YmdHis").$namabukti;
-    move_uploaded_file($lokasibukti, "bukti_pembayaran/$namafiks");
+    move_uploaded_file($lokasibukti, "../bukti_pembayaran/$namafiks");
 
     $nama=$_POST["nama"];
     $bank=$_POST["bank"];

@@ -3,12 +3,7 @@ session_start();
 include 'koneksi.php';
 
 //jika tidak ada session pelanggan (blm login)
-if(!isset($_SESSION["pelanggan"]) OR empty($_SESSION["pelanggan"]))
-{
-    echo "<script>alert('silahkan login terlebih dahulu');</script>";
-    echo "<script>location ='login.php'</script>";
-    exit();
-}
+
 ?>
 
 <!DOCTYPE html>

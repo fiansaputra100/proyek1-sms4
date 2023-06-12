@@ -9,12 +9,12 @@
       content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
 
-    <title>Login Basic - Pages | Sneat - Bootstrap 5 HTML Admin Template - Pro</title>
+    <title>Halaman Login - Holyayy</title>
 
     <meta name="description" content="" />
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="../admin/assets/img/favicon/favicon.ico" />
+
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -31,7 +31,6 @@
     <link rel="stylesheet" href="../admin/assets/vendor/css/core.css" class="template-customizer-core-css" />
     <link rel="stylesheet" href="../admin/assets/vendor/css/theme-default.css" class="template-customizer-theme-css" />
     <link rel="stylesheet" href="../admin/assets/css/demo.css" />
-    <link rel="stylesheet" href="css/stylelogin.css" />
 
     <!-- Vendors CSS -->
     <link rel="stylesheet" href="../admin/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
@@ -41,10 +40,12 @@
     <link rel="stylesheet" href="../admin/assets/vendor/css/pages/page-auth.css" />
     <!-- Helpers -->
     <script src="../admin/assets/vendor/js/helpers.js"></script>
-    <script src="css/stylelogin.css"></script>
 
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
+    <script src="../admin/assets/js/config.js"></script>
+  <!-- Custom styles for this template -->
+  <link href="css/signin.css" rel="stylesheet">
 
 </head>
 
@@ -74,9 +75,9 @@ $koneksi = new mysqli("localhost","root","","pemesanan_tiket_liburan")
     $password = $_POST["password"];
     //lakukan quert mengecek akun di tabel tb_user di database
     $ambil = $koneksi->query("SELECT * FROM tb_user WHERE username='$username' AND password_akun='$password'");
+
     //ngitung akun yang terambil
     $akuncocok = $ambil->num_rows;
-
 
     //jika 1 akun yang cocok, maka diloginkan
     if ($akuncocok==1)
@@ -88,10 +89,7 @@ $koneksi = new mysqli("localhost","root","","pemesanan_tiket_liburan")
       $_SESSION["pelanggan"] = $akun;
       echo "<script>alert('Berhasil Melakukan Login');</script>";
       echo "<script>location='home.php';</script>";
-
-
     }
-
     else
     {
       //anda gagal login
@@ -100,24 +98,6 @@ $koneksi = new mysqli("localhost","root","","pemesanan_tiket_liburan")
     }
   }
   ?>
-      <!-- build:js assets/vendor/js/core.js -->
-      <script src="../admin/assets/vendor/libs/jquery/jquery.js"></script>
-    <script src="../admin/assets/vendor/libs/popper/popper.js"></script>
-    <script src="../admin/assets/vendor/js/bootstrap.js"></script>
-    <script src="../admin/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
-
-    <script src="../admin/assets/vendor/js/menu.js"></script>
-    <!-- endbuild -->
-
-    <!-- Vendors JS -->
-
-    <!-- Main JS -->
-    <script src="../assets/js/main.js"></script>
-
-    <!-- Page JS -->
-
-    <!-- Place this tag in your head or just before your close body tag. -->
-    <script async defer src="https://buttons.github.io/buttons.js"></script>
 </body>
 
 </html>

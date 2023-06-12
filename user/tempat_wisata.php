@@ -6,7 +6,7 @@ include 'koneksi.php';
 if(!isset($_SESSION["pelanggan"]) OR empty($_SESSION["pelanggan"]))
 {
     echo "<script>alert('silahkan login terlebih dahulu');</script>";
-    echo "<script>location ='login.php'</script>";
+    echo "<script>location ='../login/login.php'</script>";
     exit();
 }
 ?>
@@ -96,13 +96,13 @@ if(!isset($_SESSION["pelanggan"]) OR empty($_SESSION["pelanggan"]))
 <br><br><br>
             <h1>Wisata</h1>
             <div class="row">
-
+        
             <?php $koneksi = mysqli_connect("localhost","root","","pemesanan_tiket_liburan") ?>   
             <?php $ambil = $koneksi->query("SELECT * FROM wisata"); ?>
             <?php while($perwisata = $ambil->fetch_assoc()) { ?> 
                 <div class="col-md-4" >
                     <div class="thumbnail">
-                    <?="<img src='../admin/php/foto_wisata/".$perwisata['foto_wisata']."'style='width:300px; height:150px; float:center; margin:5px; border-radius:20;'>"?>    
+                    <?="<img src='../halaman admin/foto_wisata/".$perwisata['foto_wisata']."'style='width:300px; height:150px; float:center; margin:5px; border-radius:20;'>"?>    
                 <div class="caption">
                     <h3><?php echo $perwisata['nama_wisata']; ?></h3>
                     <h5>Rp. <?php echo number_format($perwisata['harga_wisata']); ?></h5>

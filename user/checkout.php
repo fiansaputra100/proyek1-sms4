@@ -34,6 +34,8 @@
     </head>
 
 <body>
+        <!-- Navbar & Hero Start -->
+        <!-- Navbar & Hero Start -->
 <div class="container-fluid position-relative p-0">
         <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
             <a href="" class="navbar-brand p-0">
@@ -45,9 +47,9 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto py-0">
-                    <a href="index.php" class="nav-item nav-link ">Home</a>
-                    <a href="wisata.php" class="nav-item nav-link">Destinasi</a>
-                    <a href="#" class="nav-item nav-link">Informasi</a>
+                    <a href="home.php" class="nav-item nav-link ">Home</a>
+                    <a href="tempat_wisata.php" class="nav-item nav-link">Destinasi</a>
+                    <a href="informasi.php" class="nav-item nav-link">Informasi</a>
                     <a href="keranjang.php" class="nav-item nav-link ">Keranjang Belanja</a>
                     <a href="riwayat.php" class="nav-item nav-link">Riwayat Belanja</a>
                 </div>
@@ -61,6 +63,8 @@
             </div>
         </div>
     </div>
+    <!-- Navbar & Hero End -->
+    <!-- Navbar & Hero End -->
 <?php 
 session_start(); 
 
@@ -72,10 +76,13 @@ if(empty($_SESSION["keranjang"]) OR !isset($_SESSION["keranjang"]))
     echo "<script>alert('keranjang kosong, silahkan belanja dulu');</script>";
     echo "<script>location='tempat_wisata.php';</script>";
 }
+
+
 ?>
+
 <section class="konten">
             <div class="container">
-                <h1>C</h1>
+                <h1>Keranjang Belanja</h1>
                 <hr>
                 <table class="table table-bordered">
                     <thead>
@@ -118,6 +125,7 @@ if(empty($_SESSION["keranjang"]) OR !isset($_SESSION["keranjang"]))
                     </tfoot>
                 </table>
                 <form method="post">
+
                     <div class="row">
                         
                         <div class="col-md-4">
@@ -148,7 +156,6 @@ if(empty($_SESSION["keranjang"]) OR !isset($_SESSION["keranjang"]))
                     <button class="btn btn-primary" name="checkout">Checkout</button>
                 </form>
 
-
                 <?php
                 if (isset($_POST["checkout"]))
                 {
@@ -175,8 +182,8 @@ if(empty($_SESSION["keranjang"]) OR !isset($_SESSION["keranjang"]))
                     $nama = $perwisata['nama_wisata'];
                     $harga = $perwisata ['harga_wisata'];
                     $subharga = $perwisata['harga_wisata']*$jumlah;
-                    $koneksi->query("INSERT INTO pembelian_tiket (id_transaksi,nama_wisata,harga,subharga,kode_wisata,jumlah)
-                     VALUES ('$id_transaksi_barusan','$nama','$harga','$subharga',$kode_wisata','$jumlah')");
+                    $koneksi->query("INSERT INTO pembelian_tiket (id_transaksi,nama,harga,subharga,kode_wisata,jumlah)
+                     VALUES ('$id_transaksi_barusan','$nama','$harga','$subharga'$kode_wisata','$jumlah')");
                 }
 
                 //mengkosongkan keranjang belanja

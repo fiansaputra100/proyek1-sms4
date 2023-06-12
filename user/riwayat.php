@@ -78,7 +78,7 @@ if(!isset($_SESSION["pelanggan"]) OR empty($_SESSION["pelanggan"]))
         <br><br>
         
 
-        <h1 class="mb-5">Riwayat Belanja</h1> 
+        <h1 class="mb-5">Riwayat Belanja <?php echo $_SESSION["pelanggan"]["nama"] ?></h1> 
         <table class="table table-bordered">
             <thead>
                 <tr>
@@ -95,7 +95,7 @@ if(!isset($_SESSION["pelanggan"]) OR empty($_SESSION["pelanggan"]))
                                 //mendapatkan id user yang login dari session_abort
                 $nomor=1;
                 $id_pelanggan = $_SESSION["pelanggan"]["id_pelanggan"];
-               $ambil = $koneksi->query("SELECT * FROM transaksi join tb_user on transaksi. id_pelanggan = tb_user.id_pelanggan where tb_user.id_pelanggan='$id_pelanggan'");
+               $ambil = $koneksi->query("SELECT * FROM transaksi where id_pelanggan='$id_pelanggan'");
                
                while($pecah = $ambil->fetch_assoc()){
                ?>           
@@ -104,25 +104,17 @@ if(!isset($_SESSION["pelanggan"]) OR empty($_SESSION["pelanggan"]))
                 <td><?php echo $pecah["tanggal_pembelian"] ?></td>
                 <td><?php echo $pecah["status_pembelian"] ?></td>
                 <td>Rp. <?php echo number_format($pecah["total_pembelian"]) ?></td>
-                <td>                    
-                    
+                <td>
+                    <a href="nota.php?id=<?php echo $pecah["id_transaksi"] ?>" class="btn btn-info">Nota</a>
                     <?php if ($pecah['status_pembelian']=="pending");?>
                     <a href="pembayaran.php?id=<?php echo $pecah["id_transaksi"] ?>" class="btn btn-success">Pembayaran</a>
-                    
-                    <a href="nota.php?id=<?php echo $pecah["id_transaksi"] ?>" class="btn btn-info">Nota</a>
                 </td>    
-             
             </tr>
-
             <?php $nomor++; ?>
-
-            
-           <?php } ?>        
+            <?php } ?>             
             </tbody>
         </table>
-        
-        
-        <a href="home.php" class="btn btn-success">Kembali</a>
+        <a href="index.php" class="btn btn-success">Kembali</a>
     </div>
 </section>
 </body>

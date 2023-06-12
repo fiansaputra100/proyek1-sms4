@@ -106,7 +106,7 @@ if(!isset($_SESSION["pelanggan"]) OR empty($_SESSION["pelanggan"]))
                         <?php while($perinfo = $ambil->fetch_assoc()) { ?> 
                             <h3 class="mb-0"><?php echo ($perinfo['judul_informasi']); ?></h3>
                             <h3 class="mb-9" text-color:red><?php echo $perinfo['tanggal']; ?></h3>
-                            <td><?="<img src='../admin/php/foto_wisata/".$perinfo['foto_informasi']."'style='width:1100px; height:300px; float:right; margin:5px;'>"?></td>
+                            <td><?="<img src='../halaman admin/foto_wisata/".$perinfo['foto_informasi']."'style='width:800px; height:300px; float:right; margin:5px;'>"?></td>
     
                             <div class="overflow-hidden">   
                             
