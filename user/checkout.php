@@ -52,6 +52,7 @@
                     <a href="informasi.php" class="nav-item nav-link">Informasi</a>
                     <a href="keranjang.php" class="nav-item nav-link ">Keranjang Belanja</a>
                     <a href="riwayat.php" class="nav-item nav-link">Riwayat Belanja</a>
+                    <a href="contact.php" class="nav-item nav-link">Contact Us</a>
                 </div>
                 <a href="logout.php" class="btn btn-primary rounded-pill py-2 px-4">Logout</a>
             </div>
@@ -196,6 +197,34 @@ if(empty($_SESSION["keranjang"]) OR !isset($_SESSION["keranjang"]))
                  ?>
             </div>
         </section>
+
+        <footer style="background-color:#09f; color:white;">
+			<div id="footer" style="color:white;">
+				<div class="container">
+					<div class="row row-bottom-padded-md">
+						
+						<div class="col-md-4 col-sm-1 col-xs-15 fh5co-footer-link " >
+                            <br>
+							<h3 style="color:white;">Maps Wisata Populer</h3>
+							<ul style="color:white;">
+                            <a href="https://www.google.com/maps/place/Pantai+Balekambang/@-8.4035709,112.5342213,16z/data=!3m1!4b1!4m6!3m5!1s0x2e78a9458651084f:0x6b8da077d5b83e2f!8m2!3d-8.4034458!4d112.5391259!16s%2Fg%2F122kcmqv?entry=ttu" button class="btn btn-primary" >Pantai Balekambang</button>
+                            <a href="https://www.google.com/maps/search/raja+ampat/@-0.6062106,129.0509665,8z/data=!3m1!4b1?entry=ttu" button class="btn btn-primary">Raja Ampat</button>
+                            <a href="https://www.google.com/maps/place/Gili+Trawangan/@-8.3503091,116.0259064,15z/data=!3m1!4b1!4m6!3m5!1s0x2dcde0ab4ff1579f:0xfcea7c174732d4b2!8m2!3d-8.3482917!4d116.0384335!16zL20vMDdkeDIx?entry=ttu" button class="btn btn-primary" >Gilitrawangan</button>
+                            <a href="https://www.google.com/maps/place/Pegunungan+Jayawijaya/@-4.3499989,139.3776979,14z/data=!3m1!4b1!4m6!3m5!1s0x683faa7003406a75:0x350c517cab46fb07!8m2!3d-4.35!4d139.416667!16zL20vMDducjV5?entry=ttu" button class="btn btn-primary" >Pegunungan Jayawijaya</button>
+								
+			
+						</div>
+					
+						
+					</div>
+					<div class="row">
+						
+							<p style="color:white;">Created by Fian Rifky Saputra And Satria Yudhistira, Mahasiswa JTI POLINEMA. </p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
 
 </body>
 </html>

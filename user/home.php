@@ -66,6 +66,7 @@ include 'koneksi.php';
 
                     <a href="keranjang.php" class="nav-item nav-link">Keranjang Belanja</a>
                     <a href="riwayat.php" class="nav-item nav-link">Riwayat Belanja</a>
+                    <a href="contact.php" class="nav-item nav-link">Contact Us</a>
                     
                 </div>
 
@@ -113,7 +114,84 @@ include 'koneksi.php';
         </div>
     </div>
     <!-- About End -->
+ <!-- Service Start -->
+ <div class="container-xxl py-5">
+        <div class="container">
+            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+           
+                <h1 class="mb-5">Apa Yang Ada Di Website Ini</h1>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="service-item rounded pt-3">
+                        <div class="p-4">
+                            <i class="fa fa-3x fa-globe text-primary mb-4"></i>
+                            <h5>Pemesanan Tiket Liburan</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="service-item rounded pt-3">
+                        <div class="p-4">
+                            <i class="fa fa-3x fa-hotel text-primary mb-4"></i>
+                            <h5>Bisa Pesan Dari Rumah</h5>
+                          
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="service-item rounded pt-3">
+                        <div class="p-4">
+                            <i class="fa fa-3x fa-user text-primary mb-4"></i>
+                            <h5>Keamanan Terjamin</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
+                    <div class="service-item rounded pt-3">
+                        <div class="p-4">
+                            <i class="fa fa-3x fa-cog text-primary mb-4"></i>
+                            <h5>Fitur yang memadai</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="service-item rounded pt-3">
+                        <div class="p-4">
+                            <i class="fa fa-3x fa-globe text-primary mb-4"></i>
+                            <h5>Riwayat Pembelian yang aman</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="service-item rounded pt-3">
+                        <div class="p-4">
+                            <i class="fa fa-3x fa-hotel text-primary mb-4"></i>
+                            <h5>Berbagai tempat wisata yang bagus</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="service-item rounded pt-3">
+                        <div class="p-4">
+                            <i class="fa fa-3x fa-user text-primary mb-4"></i>
+                            <h5>Berbagai Informasi yang lengkap</h5>
 
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
+                    <div class="service-item rounded pt-3">
+                        <div class="p-4">
+                            <i class="fa fa-3x fa-cog text-primary mb-4"></i>
+                            <h5>Konsultasi</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Service End -->
 <!-- Kategori -->
 
     <!-- Destination Start -->
@@ -195,8 +273,75 @@ include 'koneksi.php';
      </section>  
   
     <!-- Package End -->
-        
+        <!-- Package Start -->
+
+<div class="container-xxl py-4">
+        <div class="container">
+            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                <h1 class="mb-5">Informasi Wisata Terbaru</h1>
+            </div>
+            <div class="row g-4 justify-content-left">
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="package-item d-grid" style="width: 1100px">
+                  
+                        <div class="p-3 d-grid">
+                            <br>
+                        <?php $koneksi = mysqli_connect("localhost","root","","pemesanan_tiket_liburan") ?>   
+                        <?php $ambil = $koneksi->query("SELECT * FROM informasi_wisata"); ?>
+                        <?php while($perinfo = $ambil->fetch_assoc()) { ?> 
+                            <h3 class="mb-0"><?php echo ($perinfo['judul_informasi']); ?></h3>
+                            <h3 class="mb-9" text-color:red><?php echo $perinfo['tanggal']; ?></h3>
+                            <td><?="<img src='../halaman admin/foto_wisata/".$perinfo['foto_informasi']."'style='width:800px; height:300px; float:right; margin:5px;'>"?></td>
     
+                            <div class="overflow-hidden">   
+                            
+                           <br><br>
+                            <a href="detail_informasi.php?id=<?php echo $perinfo['kode_info']; ?>" class="btn btn-primary">Baca Selangkapnya</a>
+    
+                        </div>
+                            <br><br>
+
+                            <?php } ?> 
+                            <?php 
+				?>
+                        </div>
+                    </div>
+                </div>     
+                
+            </div>
+        </div>
+
+        
+    </div>
+
+    <!-- Package End -->
+    <footer style="background-color:#09f; color:white;">
+			<div id="footer" style="color:white;">
+				<div class="container">
+					<div class="row row-bottom-padded-md">
+						
+						<div class="col-md-4 col-sm-1 col-xs-15 fh5co-footer-link " >
+                            <br>
+							<h3 style="color:white;">Maps Wisata Populer</h3>
+							<ul style="color:white;">
+                            <a href="https://www.google.com/maps/place/Pantai+Balekambang/@-8.4035709,112.5342213,16z/data=!3m1!4b1!4m6!3m5!1s0x2e78a9458651084f:0x6b8da077d5b83e2f!8m2!3d-8.4034458!4d112.5391259!16s%2Fg%2F122kcmqv?entry=ttu" button class="btn btn-primary" >Pantai Balekambang</button>
+                            <a href="https://www.google.com/maps/search/raja+ampat/@-0.6062106,129.0509665,8z/data=!3m1!4b1?entry=ttu" button class="btn btn-primary">Raja Ampat</button>
+                            <a href="https://www.google.com/maps/place/Gili+Trawangan/@-8.3503091,116.0259064,15z/data=!3m1!4b1!4m6!3m5!1s0x2dcde0ab4ff1579f:0xfcea7c174732d4b2!8m2!3d-8.3482917!4d116.0384335!16zL20vMDdkeDIx?entry=ttu" button class="btn btn-primary" >Gilitrawangan</button>
+                            <a href="https://www.google.com/maps/place/Pegunungan+Jayawijaya/@-4.3499989,139.3776979,14z/data=!3m1!4b1!4m6!3m5!1s0x683faa7003406a75:0x350c517cab46fb07!8m2!3d-4.35!4d139.416667!16zL20vMDducjV5?entry=ttu" button class="btn btn-primary" >Pegunungan Jayawijaya</button>
+								
+			
+						</div>
+					
+						
+					</div>
+					<div class="row">
+						
+							<p style="color:white;">Created by Fian Rifky Saputra And Satria Yudhistira, Mahasiswa JTI POLINEMA. </p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
 
     <!-- Back to Top -->
 

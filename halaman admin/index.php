@@ -44,17 +44,23 @@ font-size: 16px;"> &nbsp; <a href="login.php" class="btn btn-danger square-btn-a
             <div class="sidebar-collapse">
                 <ul class="nav" id="main-menu">
 				<li class="text-center">
-                    <img src="assets/img/find_user.png" class="user-image img-responsive"/>
+                   
 					</li>
 				
 					
                     <li>
+                        <h4 style="color:white;">Pages</h4>
                         <a href="index.php"><i class="fa fa-home "></i> Home</a>
+                        <br>
+                        <h4 style="color:white;">Destination</h4>
                         <a href="index.php?halaman=wisata"><i class="fa fa-cube "></i> Wisata</a>
                         <a href="index.php?halaman=informasi_wisata"><i class="fa fa-info "></i> Informasi Wisata</a>
+                        <br>
+                        <h4 style="color:white;">Transaksi</h4>
                         <a href="index.php?halaman=pembelian"><i class="fa fa-shopping-cart "></i> Pembelian</a>
-                        <a href="index.php?halaman=pelanggan"><i class="fa fa-user "></i> Pelanggan</a>
                         <a href="index.php?halaman=laporan_pembelian"><i class="fa fa-file "></i> Laporan</a>
+                        <h4 style="color:white;">Account</h4>
+                        <a href="index.php?halaman=pelanggan"><i class="fa fa-user "></i> Pelanggan</a>
                         <a href="login.php"><i class="fa fa-user "></i> Logout</a>
 
                     </li>

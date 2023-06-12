@@ -31,12 +31,13 @@
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
     </head>
-
-    <body>
-
-
-    <!-- Navbar & Hero Start -->
-    <div class="container-fluid position-relative p-0">
+    <?php 
+    session_start();
+    ?>
+<?php $koneksi = mysqli_connect("localhost","root","","pemesanan_tiket_liburan") ?>   
+<body>
+<!-- Navbar & Hero Start -->
+<div class="container-fluid position-relative p-0">
         <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
             <a href="" class="navbar-brand p-0">
                 <h1 class="text-primary m-0"><i class="fa fa-map-marker-alt me-3"></i>HolYayy</h1>
@@ -50,9 +51,9 @@
                     <a href="home.php" class="nav-item nav-link ">Home</a>
                     <a href="tempat_wisata.php" class="nav-item nav-link">Destinasi</a>
                     <a href="informasi.php" class="nav-item nav-link">Informasi</a>
-                    <a href="keranjang.php" class="nav-item nav-link active">Keranjang Belanja</a>
+                    <a href="keranjang.php" class="nav-item nav-link ">Keranjang Belanja</a>
                     <a href="riwayat.php" class="nav-item nav-link">Riwayat Belanja</a>
-                    <a href="contact.php" class="nav-item nav-link">Contact Us</a>
+                    <a href="contact.php" class="nav-item nav-link active">Contact Us</a>
                 </div>
                 <a href="logout.php" class="btn btn-primary rounded-pill py-2 px-4">Logout</a>
             </div>
@@ -67,69 +68,42 @@
     <!-- Navbar & Hero End -->
 
 
-    <?php 
-session_start(); 
-
-
-$koneksi = new mysqli("localhost","root","","pemesanan_tiket_liburan");  
-
-if(empty($_SESSION["keranjang"]) OR !isset($_SESSION["keranjang"]))
-{
-    echo "<script>alert('keranjang kosong, silahkan belanja dulu');</script>";
-    echo "<script>location='tempat_wisata.php';</script>";
-}
-?>
-
- 
-        <section class="konten">
-            <div class="container">
-                <h1>Keranjang Belanja</h1>
-                <hr>
-                <table class="table table-bordered">
-                    <thead>
-                        <tr>
-                            <th>No</th>
-                            <th>Wisata</th>
-                            <th>Harga</th>
-                            <th>Jumlah</th>
-                            <th>Subharga</th>
-                            <th>Aksi</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    <?php $nomor=1; ?>                      
-                        <?php foreach ($_SESSION["keranjang"] as $kode_wisata => $jumlah): ?>
-                       <!-- menampilkan wisata yg diperulangkan berdasarkan kode_wisata-->
-                       <?php 
-                       $ambil = $koneksi->query("SELECT * FROM wisata 
-                       WHERE kode_wisata='$kode_wisata'"); 
-                       $pecah = $ambil->fetch_assoc();
-                       $subharga = $pecah["harga_wisata"]*$jumlah;
-          
-
-                       ?>     
-                            <tr>
-                            <td><?php echo $nomor; ?></td>
-                            <td><?php echo $pecah["nama_wisata"]; ?></td>
-                            <td>Rp. <?php echo number_format($pecah["harga_wisata"]); ?></td>
-                            <td><?php echo $jumlah; ?></td>
-                      
-                            <td>Rp. <?php echo number_format($subharga); ?></td>         
-                        <td>
-                            <a href="hapuskeranjang.php?id=<?php echo $kode_wisata ?>" class="btn btn-danger btn-xs">Hapus</a>
-                        </td>
-                        </tr>
-                        <?php $nomor++; ?>
-                        <?php endforeach ?>
-                    </tbody>
-                </table>
-
-                <a href="tempat_wisata.php" class="btn btn-primary">Lanjutkan Belanja</a>
-                <a href="checkout.php" class="btn btn-primary">Checkout</a>
+    <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                <h1 class="mb-5">Contact Us</h1>
             </div>
-        </section>
 
-        <footer style="background-color:#09f; color:white;">
+<div class="row">
+    <div class="col-md-7">
+        <div class="alert alert-info" style="background-color:purple; color:white;">
+            <p>
+                INSTAGRAM : @fiansaputra507<br>
+            </p>
+        </div>
+    </div>
+</div>
+
+<div class="row" >
+    <div class="col-md-7">
+        <div class="alert alert-info"style="background-color:green; color:white;">
+            <p>
+                NOMOR WHATSAP : 085546259011<br>
+            </p>
+        </div>
+    </div>
+</div>
+
+<div class="row" >
+    <div class="col-md-7">
+        <div class="alert alert-info"style="background-color:red; color:white;">
+            <p>
+                EMAIL : fiansaputra@gmail.com<br>
+            </p>
+        </div>
+    </div>
+</div>
+<br><br><br>    <br><br><br>
+<footer>
+<footer style="background-color:#09f; color:white;">
 			<div id="footer" style="color:white;">
 				<div class="container">
 					<div class="row row-bottom-padded-md">
@@ -157,5 +131,5 @@ if(empty($_SESSION["keranjang"]) OR !isset($_SESSION["keranjang"]))
 			</div>
 		</footer>
 
-    </body>
+</body>
 </html>
