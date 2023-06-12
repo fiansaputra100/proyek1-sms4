@@ -10,7 +10,9 @@ $ambil = $koneksi->query("SELECT * FROM transaksi JOIN tb_user
 <table class="table table-bordered">
     <h2>Detail Transaksi</h2>
     <thead>
+        <th>Nama Wisata</th>
         <th>Tanggal Pembelian</th>
+        <th>Tanggal Pergi</th>
         <th>Total Pembelian</th>
     </thead>
 
@@ -25,9 +27,10 @@ $ambil = $koneksi->query("SELECT * FROM transaksi JOIN tb_user
                     ?>
                     <p>Nama : <?php echo $detail['nama'];?></p>
                     <p>Email : <?php echo $detail['email'];?></p>
-                    <p>Email : <?php echo $detail['no_whatsapp'];?></p>
+                    <p>No Whatsapp : <?php echo $detail['no_whatsapp'];?></p>
 <td><?php echo $detail['nama_wisata']; ?></td>
     <td><?php echo $detail['tanggal_pembelian']; ?> </td> <br>
+    <td><?php echo $detail['tanggal_pergi']; ?> </td> <br>
     <td>Rp. <?php echo $detail['total_pembelian']; ?> </td><br>
     </tbdoy>
 </table>

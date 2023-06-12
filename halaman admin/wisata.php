@@ -27,7 +27,7 @@
             </td>
             <td>  
                 <a href="index.php?halaman=editwisata&id=<?php echo $pecah['kode_wisata'];?> 
-                " class="btn btn-primary" style="background-color:red; border:0px;">Edit</a><br>
+                " class="btn btn-success" >Edit</a><br>
                 <br>
                 <form action="hapuswisata.php" method="post">
                 <input type="hidden" value="<?php echo $pecah['kode_wisata'];?>" name="id">
@@ -39,4 +39,4 @@
         <?php } ?>
     </tbdoy>
 </table>
-<a href="index.php?halaman=tambahwisata" class="btn btn-primary">Tambah Data </a>
+<a href="index.php?halaman=tambahwisata" class="btn btn-primary">Tambah Wisata </a>

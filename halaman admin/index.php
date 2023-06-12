@@ -28,12 +28,16 @@ $koneksi = mysqli_connect("localhost","root","","pemesanan_tiket_liburan");
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">Admin Holyayy</a> 
+                <a class="navbar-brand" href="index.php">Admin Holyayy</a> 
             </div>
+            
   <div style="color: white;
 padding: 15px 50px 5px 50px;
 float: right;
-font-size: 16px;"> &nbsp; <a href="login.php" class="btn btn-danger square-btn-adjust">Logout</a> </div>
+font-size: 16px;"> &nbsp; <a href="login.php" class="btn btn-danger square-btn-adjust">Logout</a> 
+</div>
+
+
         </nav>   
            <!-- /. NAV TOP  -->
                 <nav class="navbar-default navbar-side" role="navigation">
@@ -45,10 +49,14 @@ font-size: 16px;"> &nbsp; <a href="login.php" class="btn btn-danger square-btn-a
 				
 					
                     <li>
-                        <a href="index.php"><i class="fa fa-dashboard fa-3x"></i> Home</a>
-                        <a href="index.php?halaman=wisata"><i class="fa fa-dashboard fa-3x"></i> Wisata</a>
-                        <a href="index.php?halaman=pembelian"><i class="fa fa-dashboard fa-3x"></i> Pembelian</a>
-                        <a href="index.php?halaman=pelanggan"><i class="fa fa-dashboard fa-3x"></i> Pelanggan</a>
+                        <a href="index.php"><i class="fa fa-home "></i> Home</a>
+                        <a href="index.php?halaman=wisata"><i class="fa fa-cube "></i> Wisata</a>
+                        <a href="index.php?halaman=informasi_wisata"><i class="fa fa-info "></i> Informasi Wisata</a>
+                        <a href="index.php?halaman=pembelian"><i class="fa fa-shopping-cart "></i> Pembelian</a>
+                        <a href="index.php?halaman=pelanggan"><i class="fa fa-user "></i> Pelanggan</a>
+                        <a href="index.php?halaman=laporan_pembelian"><i class="fa fa-file "></i> Laporan</a>
+                        <a href="login.php"><i class="fa fa-user "></i> Logout</a>
+
                     </li>
                      
                 </ul>
@@ -93,6 +101,38 @@ font-size: 16px;"> &nbsp; <a href="login.php" class="btn btn-danger square-btn-a
                         {
                             include 'editwisata.php';
                         } 
+
+                         if($_GET['halaman']=="pembayaran")
+                        {
+                            include 'pembayaran.php';
+                        } 
+
+                        
+                        if($_GET['halaman']=="laporan_pembelian")
+                        {
+                            include 'laporan_pembelian.php';
+                        } 
+
+                        if($_GET['halaman']=="informasi_wisata")
+                        {
+                            include 'informasi_wisata.php';
+                        }
+                        if($_GET['halaman']=="tambah_informasi")
+                        {
+                            include 'tambah_informasi.php';
+                        }
+                        if($_GET['halaman']=="editinformasi")
+                        {
+                            include 'editinformasi.php';
+                        }
+                        if($_GET['halaman']=="hapusinformasi")
+                        {
+                            include 'hapusinformasi.php';
+                        }
+                        if($_GET['halaman']=="hapuspelanggan")
+                        {
+                            include 'hapuspelanggan.php';
+                        }
                         }
                         
                 else

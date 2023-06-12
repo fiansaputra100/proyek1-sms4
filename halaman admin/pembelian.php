@@ -3,7 +3,9 @@
 <table class="table table-bordered">
     <thead>
         <th>No</th>
+        <th>Nama</th>
         <th>Tanggal</th>
+        <th>Status Pembelian</th>
         <th>Total</th>
         <th>Aksi</th>
     </thead>
@@ -18,12 +20,18 @@
         <?php while($pecah = $ambil->fetch_assoc()) { ?>
         <tr>
             <td><?php echo $nomor; ?></td>
+            <td><?php echo $pecah['nama']; ?></td>
             <td><?php echo $pecah['tanggal_pembelian']; ?></td>
+            <td><?php echo $pecah['status_pembelian']; ?></td>
             <td><?php echo $pecah['total_pembelian']; ?></td>
             <td>
-                <a href="index.php?halaman=detail&id=<?php echo $pecah['id_transaksi']?>" class="btn-btn info">detail</a>
-            </td>
-        </tr>
+                <a href="index.php?halaman=detail&id=<?php echo $pecah['id_transaksi']?>" class="btn btn-primary">detail</a>
+            
+        <?php if ($pecah['status_pembelian']=="sudah kirim pembayaran"): ?>
+        <a href="index.php?halaman=pembayaran&id=<?php echo $pecah['id_transaksi'] ?>" class="btn btn-success">Lihat Pembayaran</a>  
+        <?php endif ?>       
+    </td>
+ </tr>
         <?php $nomor++; ?>
         <?php } ?>
     </tbdoy>

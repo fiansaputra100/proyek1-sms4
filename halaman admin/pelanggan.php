@@ -7,6 +7,7 @@
         <th>username</th>
          <th>Email</th>
          <th>No Whatsapp</th>
+         <th>Aksi</th>
     </thead>
 
     <tbdoy>
@@ -23,8 +24,12 @@
             <td><?php echo $pecah['username']; ?></td>
             <td><?php echo $pecah['email']; ?></td>
             <td><?php echo $pecah['no_whatsapp']; ?></td>
+
             <td>
-                <a href="" class="btn btn-danger">Hapus</a>
+                <form action="hapuspelanggan.php" method="post">
+                <input type="hidden" value="<?php echo $pecah['id_pelanggan'];?>" name="id">
+                <input class="btn btn-success" type="submit" value="Hapus"></input>
+                </form>
             </td>
         </tr>
         <?php $nomor++; ?>

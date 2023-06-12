@@ -6,7 +6,7 @@ $koneksi = new mysqli("localhost", "root", "pemesanan_tiket_liburan");
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Login : Admin Holyayy</title>
+    <title>Halaman Login Holyayy</title>
 	<!-- BOOTSTRAP STYLES-->
     <link href="assets/css/bootstrap.css" rel="stylesheet" />
      <!-- FONTAWESOME STYLES-->
@@ -33,50 +33,28 @@ $koneksi = new mysqli("localhost", "root", "pemesanan_tiket_liburan");
                   <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                        <strong>   Enter Details To Login </strong>  
+                        <strong>   Silahkan Melakukan Login </strong>  
                             </div>
                             <div class="panel-body">
                                 <form role="form" method="post">
                                        <br />
                                      <div class="form-group input-group">
                                             <span class="input-group-addon"><i class="fa fa-tag"  ></i></span>
-                                            <input type="text" class="form-control" name="user" />
+                                            <input type="username" id="username" class="form-control" placeholder="Username" name="username" required autofocus/>
                                         </div>
                                             <div class="form-group input-group">
                                             <span class="input-group-addon"><i class="fa fa-lock"  ></i></span>
-                                            <input type="password" class="form-control"  name="pass" />
+                                            <input type="password" class="form-control" id="password" placeholder="Password" name="password" required />
                                         </div>
                                     <div class="form-group">
-                                            <label class="checkbox-inline">
-                                                <input type="checkbox" /> Remember me
-                                            </label>
-                                            <span class="pull-right">
-                                                   <a href="#" >Forget password ? </a> 
-                                            </span>
+            
                                         </div>
                                      
-                                     <a href="index.php" class="btn btn-primary ">Login Now</a>
+                                        <button class="btn btn-lg btn-primary btn-block" type="submit" name="login">Sign in</button>
                                     <hr />
-                                    Not register ? <a href="registeration.html" >click here </a> 
+                                    Not register ? <a href="register.php" >click here </a> 
                                     </form>
-                                    <?php 
-                                    if (isset($_POST['login']))
-                                    {
-                                       $ambil = $koneksi->query("SELECT * FROM admin WHERE username = '$_POST[user]'
-                                        AND password = '$_POST[pass]'");
-                                        $yangcocok = $ambil->num_rows;
-                                        if($yangcocok==1){
-                                            $_SESSION['admin']=$ambil->fetch_assoc();
-                                            echo "<div class='alert alert-info'>Login Sukses</div>";
-                                            echo "<meta http-equiv='refresh' content='1;url=index.php'>";
-                                        }
-                                        else
-                                        {
-                                            echo "<div class='alert alert-danger'>Login Gagal</div>";
-                                            echo "<meta http-equiv='refresh' content='1;url=login.php'>";
-                                        }
-                                    }
-                                    ?>
+                                   
                             </div>
                            
                         </div>
@@ -85,7 +63,45 @@ $koneksi = new mysqli("localhost", "root", "pemesanan_tiket_liburan");
                 
         </div>
     </div>
+    <?php
+session_start();
+$koneksi = new mysqli("localhost","root","","pemesanan_tiket_liburan")
+?>
 
+  <?php 
+  //jika ada tombol simpan(tombol simpan ditekan)
+  if (isset($_POST["login"]))
+  {
+    $username = $_POST["username"];
+    $password = $_POST["password"];
+    //lakukan quert mengecek akun di tabel tb_user di database
+    $ambil = $koneksi->query("SELECT * FROM admin_1 WHERE username='$username' AND password='$password'");
+    //ngitung akun yang terambil
+    $akuncocok = $ambil->num_rows;
+
+
+    //jika 1 akun yang cocok, maka diloginkan
+    if ($akuncocok==1)
+    {
+      //anda sudah login
+      //mendapatkan akun dalam bentuk array
+      $akun = $ambil->fetch_assoc();
+      //simpan di session pelanggan
+      $_SESSION["pelanggan"] = $akun;
+      echo "<script>alert('Berhasil Melakukan Login');</script>";
+      echo "<script>location='index.php';</script>";
+
+
+    }
+
+    else
+    {
+      //anda gagal login
+      echo "<script>alert('anda gagal login, periksa username atau password anda');</script>";
+      echo "<script>location='login.php';</script>";
+    }
+  }
+  ?>
 
      <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
     <!-- JQUERY SCRIPTS -->
@@ -99,3 +115,5 @@ $koneksi = new mysqli("localhost", "root", "pemesanan_tiket_liburan");
    
 </body>
 </html>
+
+
