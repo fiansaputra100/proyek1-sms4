@@ -133,7 +133,13 @@ font-size: 16px;"> &nbsp; <a href="login.php" class="btn btn-danger square-btn-a
                         {
                             include 'hapuspelanggan.php';
                         }
+
+                        if($_GET['halaman']=="hapustransaksi")
+                        {
+                            include 'hapustransaksi.php';
+                        }   
                         }
+
                         
                 else
                 {

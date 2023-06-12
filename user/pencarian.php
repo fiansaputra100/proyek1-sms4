@@ -112,7 +112,7 @@ while($pecah=$ambil->fetch_assoc())
                             </div>
 
                             <div class="overflow-hidden">   
-                            <td><?="<img src='../admin/php/foto_wisata/".$value['foto_wisata']."'style='width:1100px; height:300px; float:right; margin:5px;'>"?></td>
+                            <td><?="<img src='../halaman admin/foto_wisata/".$value['foto_wisata']."'style='width:1100px; height:300px; float:right; margin:5px;'>"?></td>
                             </div>
                             <br><br>
 

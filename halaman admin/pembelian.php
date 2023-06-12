@@ -30,6 +30,11 @@
         <?php if ($pecah['status_pembelian']=="sudah kirim pembayaran"): ?>
         <a href="index.php?halaman=pembayaran&id=<?php echo $pecah['id_transaksi'] ?>" class="btn btn-success">Lihat Pembayaran</a>  
         <?php endif ?>       
+<br><br>
+        <form action="hapustransaksi.php" method="post">
+                <input type="hidden" value="<?php echo $pecah['id_transaksi'];?>" name="id">
+                <input class="btn btn-primary" style="background-color:red; border-color:red;" type="submit" value="Hapus"></input>
+                </form>
     </td>
  </tr>
         <?php $nomor++; ?>

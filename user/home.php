@@ -177,7 +177,7 @@ include 'koneksi.php';
             <?php while($perwisata = $ambil->fetch_assoc()) { ?> 
                 <div class="col-md-4" >
                     <div class="thumbnail">
-                    <?="<img src='../admin/php/foto_wisata/".$perwisata['foto_wisata']."'style='width:300px; height:150px; float:center; margin:5px; border-radius:20;'>"?>    
+                    <?="<img src='../halaman admin/foto_wisata/".$perwisata['foto_wisata']."'style='width:300px; height:150px; float:center; margin:5px; border-radius:20;'>"?>    
                 <div class="caption">
                     <h3><?php echo $perwisata['nama_wisata']; ?></h3>
                     <h5>Rp. <?php echo number_format($perwisata['harga_wisata']); ?></h5>
