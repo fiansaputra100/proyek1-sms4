@@ -4,6 +4,8 @@ include 'koneksi.php';
 
 
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -39,6 +41,7 @@ include 'koneksi.php';
 </head>
 
 <body>
+
     <!-- Spinner Start -->
     <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
         <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
@@ -78,6 +81,7 @@ include 'koneksi.php';
             <div class="container py-5">
                 <div class="row justify-content-center py-5">
                     <div class="col-lg-10 pt-lg-5 mt-lg-5 text-center">
+                  
                         <h1 class="display-3 text-white mb-3 animated slideInDown">Enjoy Liburanmu Bersama Kami</h1>
                 <p class="fs-4 text-white mb-4 animated slideInDown">Silahkan Cari Destinasi Tempat Wisata Kesukaan Kalian</p>
                         <div class="position-relative w-75 mx-auto animated slideInDown">

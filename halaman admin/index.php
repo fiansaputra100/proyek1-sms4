@@ -28,7 +28,7 @@ $koneksi = mysqli_connect("localhost","root","","pemesanan_tiket_liburan");
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.php">Admin Holyayy</a> 
+                <a class="navbar-brand" href="index.php">Tiketku</a> 
             </div>
             
   <div style="color: white;

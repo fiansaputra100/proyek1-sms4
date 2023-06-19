@@ -47,14 +47,14 @@
         <input type="text" class="form-control" id="username" name="username" placeholder="Username">
       </div>
     </div>
- 
+ <br>
     <div class="form-group row">
       <label for="nama" class="col-sm-2 col-form-label">Nama</label>
       <div class="col-sm-10">
         <input type="text" class="form-control" id="nama" name="nama" placeholder="Nama">
       </div>
     </div>
- 
+ <br>
  
   <div class="form-group row">
     <label for="password" class="col-sm-2 col-form-label">Password</label>
@@ -62,18 +62,21 @@
       <input type="password" class="form-control" id="password" name="password" placeholder="Password">
     </div>
   </div>
+  <br>
   <div class="form-group row">
     <label for="email" class="col-sm-2 col-form-label">Email</label>
     <div class="col-sm-10">
       <input type="email" class="form-control" id="email" name="email" placeholder="email">
     </div>
   </div>
+  <br>
   <div class="form-group row">
     <label for="nowhatsapp" class="col-sm-2 col-form-label">No Whatsapp</label>
     <div class="col-sm-10">
       <input type="number" class="form-control" id="nowhatsapp" name="nowhatsapp" placeholder="nowhatsapp">
     </div>
   </div>
+  <br>
   <div class="form-group row">
     <div class="col-sm-10">
       <a href="login.php" class="btn btn-success">Login</a>

@@ -197,7 +197,7 @@ if(empty($_SESSION["keranjang"]) OR !isset($_SESSION["keranjang"]))
                  ?>
             </div>
         </section>
-
+<br><br>
         <footer style="background-color:#09f; color:white;">
 			<div id="footer" style="color:white;">
 				<div class="container">

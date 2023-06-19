@@ -101,7 +101,9 @@ if(!isset($_SESSION["pelanggan"]) OR empty($_SESSION["pelanggan"]))
             <div class="row">
         
             <?php $koneksi = mysqli_connect("localhost","root","","pemesanan_tiket_liburan") ?>   
-            <?php $ambil = $koneksi->query("SELECT * FROM wisata"); ?>
+            
+            <?php
+             $ambil = $koneksi->query("SELECT * FROM wisata"); ?>
             <?php while($perwisata = $ambil->fetch_assoc()) { ?> 
                 <div class="col-md-4" >
                     <div class="thumbnail">
